@@ -12,7 +12,7 @@ import { SquaredBg } from "../UI";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Model({ open, hinge, ...props }: any) {
-  const { nodes, materials } = useGLTF("/3d/mac-draco.glb");
+  const { nodes, materials } = useGLTF("/3d/laptop.glb");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const group = useRef<any>();
 
