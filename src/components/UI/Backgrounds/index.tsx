@@ -1,0 +1,1 @@
+export { SquaredBg } from "./SquaredBg";
