@@ -4,7 +4,7 @@ import { Card } from "./Card";
 import { Links } from "./Links";
 
 import { useAppInteraction } from "../../contexts";
-import { GradientText, SquaredBg } from "../UI";
+import { GradientText, AnimatedSquaresBackground } from "../UI";
 import { MouseEvent } from "react";
 
 export const Contacts = () => {
@@ -33,7 +33,7 @@ export const Contacts = () => {
       className="min-h-dvh w-full py-8 px-10 overflow-hidden relative flex flex-col items-center justify-evenly gap-8 bg-primaryDark"
       onMouseMove={handleMouseMovement}
     >
-      <SquaredBg />
+      <AnimatedSquaresBackground />
       <GradientText>Contacts</GradientText>
       <Card rotationX={rotateX} rotationY={rotateY} />
       <Links />

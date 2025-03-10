@@ -1,1 +1,1 @@
-export { SquaredBg } from "./SquaredBg";
+export { AnimatedSquaresBackground } from "./AnimatedSquares";

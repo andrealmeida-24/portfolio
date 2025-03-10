@@ -9,7 +9,7 @@ const ANIMATION_SPEED = 1;
 const BORDER_COLOR = "#999";
 const SQUARE_SIZE = 40;
 
-export const SquaredBg: FC = () => {
+export const AnimatedSquaresBackground: FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const requestRef = useRef<number | null>(null);
   const numSquaresX = useRef<number>(0);
@@ -93,6 +93,7 @@ export const SquaredBg: FC = () => {
     <canvas
       ref={canvasRef}
       className="absolute h-dvh w-full border-none block"
+      data-testid="animated-squared-background"
     ></canvas>
   );
 };
