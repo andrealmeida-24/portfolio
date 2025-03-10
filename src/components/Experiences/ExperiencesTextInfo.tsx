@@ -9,7 +9,7 @@ export const ExperiencesTextInfo = () => {
     <motion.div
       ref={containerRef}
       id="aboutContainer"
-      className="h-fit w-full md:w-1/2"
+      className="section-text"
       initial={{ opacity: 0 }}
       animate={{ opacity: isInView ? 1 : 0 }}
       transition={{ duration: 1 }}

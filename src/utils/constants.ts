@@ -1,2 +1,5 @@
 export const COLOR_PRIMARY_LIGHT = "#FAF9F6";
 export const COLOR_PRIMARY_DARK = "#202020";
+export const COLOR_PRIMARY_DARKER = "#191919";
+
+export const IN_VIEW_TRIGGER_ANIMATION_AMOUNT = 0.5;

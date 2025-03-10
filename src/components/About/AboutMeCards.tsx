@@ -2,51 +2,68 @@ import { Code, Database, Server, Gamepad } from "lucide-react";
 import { FC, useRef } from "react";
 import { motion, useInView } from "motion/react";
 
+import reactImg from "/img/react.webp";
+import nextImg from "/img/nextJs.png";
+import nodeImg from "/img/nodeJs.png";
+import dotNetImg from "/img/dotNetCore.png";
+import mongoDbImg from "/img/mongoDb.png";
+import postgresSqlImg from "/img/postgreSQL.png";
+import phaser1Img from "/img/phaser.png";
+import phaser2Img from "/img/phaser2.png";
+import {
+  COLOR_PRIMARY_DARKER,
+  IN_VIEW_TRIGGER_ANIMATION_AMOUNT,
+} from "../../utils";
+
 const skills = [
   {
-    icon: <Code className="w-6 md:w-8 h-6 md:h-8 text-blue-500" />,
+    icon: <Code className="about-me-card-icon text-blue-500" />,
     title: "Frontend",
     description:
       "Building responsive and interactive user interfaces with modern React, React Native and Next.js for optimal performance.",
     borderColor: "border-blue-500",
     textSelection: "selection:text-blue-500",
-    image1: "/img/react.webp",
-    image2: "/img/nextJs.png",
+    image1: reactImg,
+    image2: nextImg,
   },
   {
-    icon: <Server className="w-6 md:w-8 h-6 md:h-8 text-green-500" />,
+    icon: <Server className="about-me-card-icon text-green-500" />,
     title: "Backend",
     description:
       "Creating server-side applications with focus on scalability and clean architecture using Node js or C# and .NET Core.",
     borderColor: "border-green-500",
     textSelection: "selection:text-green-500",
-    image1: "/img/nodeJs.png",
-    image2: "/img/dotNetCore.png",
+    image1: nodeImg,
+    image2: dotNetImg,
   },
   {
-    icon: <Database className="w-6 md:w-8 h-6 md:h-8 text-purple-500" />,
+    icon: <Database className="about-me-card-icon text-purple-500" />,
     title: "Database",
     description:
       "Designing efficient database schemas and queries for optimal data management using MongoDB, Mongoose or PostgreSQL.",
     borderColor: "border-purple-500",
     textSelection: "selection:text-purple-500",
-    image1: "/img/mongoDb.png",
-    image2: "/img/postgreSQL.png",
+    image1: mongoDbImg,
+    image2: postgresSqlImg,
   },
   {
-    icon: <Gamepad className="w-6 md:w-8 h-6 md:h-8 text-yellow-500" />,
+    icon: <Gamepad className="about-me-card-icon text-yellow-500" />,
     title: "Games",
     description:
       "Crafting creating and engaging 2D web games using Javascript/Typescript with Phaser.",
     borderColor: "border-yellow-500",
     textSelection: "selection:text-yellow-500",
-    image1: "/img/phaser.png",
-    image2: "/img/phaser2.png",
+    image1: phaser1Img,
+    image2: phaser2Img,
   },
 ];
 export const AboutMeCards: FC = () => {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { amount: 0.5, once: false });
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const isInView = useInView(containerRef, {
+    amount: IN_VIEW_TRIGGER_ANIMATION_AMOUNT,
+    once: false,
+  });
 
   return (
     <motion.div
@@ -65,7 +82,10 @@ export const AboutMeCards: FC = () => {
             y: isInView ? 0 : 50,
           }}
           transition={{ duration: 0.5, delay: index / 6 }}
-          whileHover={{ scale: 1.05, boxShadow: "0px 5px 8px #191919" }}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: `0px 5px 8px ${COLOR_PRIMARY_DARKER}`,
+          }}
           className={`relative overflow-hidden min-h-[200px] md:min-h-[100px] bg-primaryDark p-6 shadow-md rounded-xl border-2 border-primaryDarker ${skill.textSelection}`}
         >
           <img
@@ -80,7 +100,7 @@ export const AboutMeCards: FC = () => {
           <h3 className="text-md md:text-2xl font-displaySemibold text-primaryLight mt-2 md:mt-4 mb-1 md:mb-2">
             {skill.title}
           </h3>
-          <p className="text-sm md:text-lg font-displayRegular dark:text-gray-300">
+          <p className="text-sm md:text-lg font-displayRegular">
             {skill.description}
           </p>
         </motion.div>

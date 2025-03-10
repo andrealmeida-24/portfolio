@@ -1,15 +1,20 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import { IN_VIEW_TRIGGER_ANIMATION_AMOUNT } from "../../utils";
 
 export const AboutMeTextInfo = () => {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { amount: 0.75, once: false });
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const isInView = useInView(containerRef, {
+    amount: IN_VIEW_TRIGGER_ANIMATION_AMOUNT,
+    once: false,
+  });
 
   return (
     <motion.div
       ref={containerRef}
       id="aboutContainer"
-      className="h-fit w-full md:w-1/2"
+      className="section-text"
       initial={{ opacity: 0 }}
       animate={{ opacity: isInView ? 1 : 0 }}
       transition={{ duration: 1 }}

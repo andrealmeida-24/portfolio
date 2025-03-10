@@ -44,6 +44,17 @@ body {
 }
 
 @layer utilities {
+  .about-me-card-icon {
+    @apply w-6 md:w-8 h-6 md:h-8;
+  }
+
+  .section {
+    @apply min-h-dvh w-full py-8 px-10 overflow-hidden flex flex-col items-center justify-evenly gap-8 bg-primaryDark;
+  }
+
+  .section-text {
+    @apply h-fit w-full md:w-1/2;
+  }
   .border-hsla {
     @apply border border-white/20;
   }

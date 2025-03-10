@@ -12,10 +12,7 @@ export const About = () => {
   }
 
   return (
-    <section
-      id="about"
-      className="min-h-dvh w-full py-8 px-10 overflow-hidden flex flex-col items-center justify-evenly gap-8 bg-primaryDark"
-    >
+    <section id="about" className="section">
       <GradientText>About Me</GradientText>
       <AboutMeTextInfo />
       <AboutMeCards />
