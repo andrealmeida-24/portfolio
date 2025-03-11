@@ -1,21 +1,23 @@
 import { FC, ReactNode } from "react";
 import { useAppInteraction } from "../../../contexts";
-import { SectionTitleProps } from "./SectionTitle";
+
 import { GradientText } from "../GradientText";
+import { AnimatedSquaresBackground } from "../Backgrounds";
 
 type SectionProps = {
   id: string;
   children: ReactNode;
-  backgroundMode: "light" | "dark";
-  svg?: JSX.Element;
-} & SectionTitleProps;
+  title?: string;
+  className?: string;
+  animatedBg?: boolean;
+};
 
 export const Section: FC<SectionProps> = ({
   id,
   children,
-  backgroundMode,
   title,
-  svg,
+  className,
+  animatedBg,
 }) => {
   const { isAppReadyForInteraction } = useAppInteraction();
 
@@ -24,15 +26,9 @@ export const Section: FC<SectionProps> = ({
   }
 
   return (
-    <section
-      id={id}
-      className={`min-h-dvh w-full py-8 px-10 overflow-hidden relative flex flex-col items-center justify-evenly gap-8 ${
-        backgroundMode === "light" ? "bg-primaryLight" : "bg-primaryDark"
-      }`}
-    >
-      {svg}
-      <GradientText>{title}</GradientText>
-      {/* <SectionTitle title={title} /> */}
+    <section id={id} className={`section ${className}`}>
+      {animatedBg && <AnimatedSquaresBackground />}
+      {title && <GradientText>{title}</GradientText>}
       {children}
     </section>
   );

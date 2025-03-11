@@ -1,16 +1,20 @@
 import { Linkedin, Mail, Github } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { FC, useRef } from "react";
+import { IN_VIEW_TRIGGER_ANIMATION_AMOUNT } from "../../utils";
 
 export const Links: FC = () => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { amount: 0.75, once: false });
+  const isInView = useInView(containerRef, {
+    amount: IN_VIEW_TRIGGER_ANIMATION_AMOUNT,
+    once: false,
+  });
 
   return (
     <motion.div
       ref={containerRef}
       id="linksContainer"
-      className="md:w-1/2 relative flex justify-center space-x-4"
+      className="md:w-1/2 relative flex justify-center space-x-4 my-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: isInView ? 1 : 0 }}
       transition={{ duration: 1 }}
