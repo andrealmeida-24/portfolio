@@ -8,7 +8,7 @@ type CardProps = {
 export const Card: FC<CardProps> = ({ rotationX, rotationY }) => {
   return (
     <motion.div
-      className="w-full md:w-2/4 flex justify-center items-center"
+      className="w-full flex justify-center items-center"
       style={{ rotateX: rotationX, rotateY: rotationY }}
     >
       <div className="min-h-[25dvh] border-2 border-primary w-full rounded-md backdrop-blur-sm brightness-125 p-4 flex flex-col justify-center items-center">

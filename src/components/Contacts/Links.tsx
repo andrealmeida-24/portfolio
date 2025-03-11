@@ -14,7 +14,7 @@ export const Links: FC = () => {
     <motion.div
       ref={containerRef}
       id="linksContainer"
-      className="md:w-1/2 relative flex justify-center space-x-4 my-8"
+      className="relative flex justify-center space-x-4 my-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: isInView ? 1 : 0 }}
       transition={{ duration: 1 }}

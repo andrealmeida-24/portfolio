@@ -1,12 +1,14 @@
 import { FC, useState } from "react";
 import { useAppInteraction } from "../../contexts";
 import { motion } from "motion/react";
-import { Sparkles } from "lucide-react";
+import { COLOR_PRIMARY_DARK, COLOR_PRIMARY_LIGHT } from "../../utils";
+import { CTAButton } from "./CTAButton";
+
+const SCROLL_TO_SECTION_DURATION = 400;
 
 const sections = [
   { id: "about", label: "about" },
   { id: "experience", label: "experiences" },
-  { id: "contact", label: "contacts" },
 ];
 
 export const Navbar: FC = () => {
@@ -22,14 +24,14 @@ export const Navbar: FC = () => {
     if (isOpen) {
       toggleMenu();
 
-      const scrollToEl = setTimeout(() => {
+      const scrollToSection = setTimeout(() => {
         elementToScroll?.scrollIntoView({
           behavior: "smooth",
         });
-      }, 400);
+      }, SCROLL_TO_SECTION_DURATION);
 
       return () => {
-        clearTimeout(scrollToEl);
+        clearTimeout(scrollToSection);
       };
     } else {
       elementToScroll?.scrollIntoView({
@@ -61,9 +63,11 @@ export const Navbar: FC = () => {
           className="flex"
         >
           <motion.span
-            initial={{ color: "#202020" }}
+            initial={{ color: COLOR_PRIMARY_DARK }}
             animate={{
-              color: isAppReadyForInteraction ? "#FAF9F6" : "#202020",
+              color: isAppReadyForInteraction
+                ? COLOR_PRIMARY_LIGHT
+                : COLOR_PRIMARY_DARK,
             }}
             transition={{ duration: 0.1 }}
             className="font-displayBold text-2xl text-primaryDark py-4 px-2 selection:text-primary"
@@ -86,26 +90,10 @@ export const Navbar: FC = () => {
             </div>
           )}
 
-          {isAppReadyForInteraction && (
-            <button
-              onClick={() => handleMenuNavigation("contacts")}
-              className="hidden md:flex gap-2 items-center h-fit my-auto py-2 px-4 border-2 rounded-full border-primary bg-primary hover:border-primaryHover text-primaryLight font-displaySemibold text-md"
-            >
-              <Sparkles />
-              <div
-                className="text-[#b5b5b5a4] inline-block bg-clip-text animate-shine"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(120deg, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)",
-                  backgroundSize: "200% 100%",
-                  WebkitBackgroundClip: "text",
-                  animationDuration: "3s",
-                }}
-              >
-                Get in touch
-              </div>
-            </button>
-          )}
+          <CTAButton
+            viewport="large"
+            onClickHandler={() => handleMenuNavigation("contacts")}
+          />
 
           {isAppReadyForInteraction && (
             <div className="md:hidden flex items-center">
@@ -161,24 +149,11 @@ export const Navbar: FC = () => {
                 {section.label}
               </a>
             ))}
-            <button
-              onClick={() => handleMenuNavigation("contacts")}
-              className="w-fit flex gap-2 items-center py-2 px-4 border-2 rounded-full border-primary bg-primary hover:border-primaryHover text-primaryLight font-displaySemibold text-xl"
-            >
-              <Sparkles />
-              <div
-                className="text-[#b5b5b5a4] inline-block bg-clip-text animate-shine"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(120deg, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)",
-                  backgroundSize: "200% 100%",
-                  WebkitBackgroundClip: "text",
-                  animationDuration: "3s",
-                }}
-              >
-                Get in touch
-              </div>
-            </button>
+
+            <CTAButton
+              viewport="small"
+              onClickHandler={() => handleMenuNavigation("contacts")}
+            />
           </div>
         </motion.div>
       )}
