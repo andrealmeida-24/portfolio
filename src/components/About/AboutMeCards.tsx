@@ -100,7 +100,7 @@ export const AboutMeCards: FC = () => {
           <h3 className="text-md md:text-2xl font-displaySemibold text-primaryLight mt-2 md:mt-4 mb-1 md:mb-2">
             {skill.title}
           </h3>
-          <p className="text-sm md:text-lg font-displayRegular">
+          <p className="text-sm md:text-lg font-displayRegular text-primaryLight">
             {skill.description}
           </p>
         </motion.div>
