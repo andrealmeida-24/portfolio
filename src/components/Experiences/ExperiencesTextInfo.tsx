@@ -1,9 +1,13 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import { IN_VIEW_TRIGGER_ANIMATION_AMOUNT } from "../../utils";
 
 export const ExperiencesTextInfo = () => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { amount: 0.75, once: false });
+  const isInView = useInView(containerRef, {
+    amount: IN_VIEW_TRIGGER_ANIMATION_AMOUNT,
+    once: false,
+  });
 
   return (
     <motion.div

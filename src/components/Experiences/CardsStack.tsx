@@ -1,10 +1,14 @@
 import { motion } from "motion/react";
 import React, { useState } from "react";
 
+import gaming1Img from "/img/g1.jpg";
+import celfocusImg from "/img/celfocus.png";
+import tetralecImg from "/img/tetralec.jpg";
+
 const experiences = [
   {
     id: 1,
-    image: "/img/g1.jpg",
+    image: gaming1Img,
     company: "Gaming1",
     location: "Liege, BE",
     period: "2023 - Present",
@@ -21,7 +25,7 @@ const experiences = [
   },
   {
     id: 2,
-    image: "/img/celfocus.png",
+    image: celfocusImg,
     company: "Celfocus",
     location: "Lisbon, PT",
     period: "2022 - 2023",
@@ -38,7 +42,7 @@ const experiences = [
   },
   {
     id: 3,
-    image: "/img/tetralec.jpg",
+    image: tetralecImg,
     company: "Tetralec",
     location: "Lisbon, PT",
     period: "2020 - 2022",

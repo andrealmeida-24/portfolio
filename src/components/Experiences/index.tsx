@@ -11,10 +11,7 @@ export const Experiences = () => {
   }
 
   return (
-    <section
-      id="experiences"
-      className="min-h-dvh w-full py-8 px-10 overflow-hidden flex flex-col items-center justify-evenly gap-8 bg-primaryDark"
-    >
+    <section id="experiences" className="section">
       <GradientText>Experiences</GradientText>
       <ExperiencesTextInfo />
       <CardsStack />
